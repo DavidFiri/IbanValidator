@@ -30,7 +30,9 @@ function validateIban(iban, knownBankCodes){
     if(!hasValidFormat(iban)) return {valid: false, reason: 'INVALID_FORMAT'};
     if(!isCheckSumValid(iban)) return{valid: false, reason: 'INVALID_CHECKSUM'};
     if(!knownBankCodes.includes(extractBankCode(iban))) return {valid: false, reason: 'UNKNOWN_BANKCODE'};
-    return {valid: true};
+    return {valid: true, normalizedIban: iban, bankCode: extractBankCode(iban)};
 }
-let iban = String(process.env.IBAN_VALID); 
-console.log(validateIban(iban));
+//let iban = String(process.env.IBAN_VALID); 
+//console.log(validateIban(iban));
+
+module.exports = { validateIban };
