@@ -15,9 +15,9 @@ const postIban = async(req, res) => {
              return res.json(result); // {valid: false, reason: ....}
         }
 
-        const {alreadyExisted, firstCheckedAt} = await upsertValidateIban(result.normalizedIban, result.bankCode);
+        const {alreadyExisted, firstCheckedAt, checkCount} = await upsertValidateIban(result.normalizedIban, result.bankCode);
 
-        return res.json({valid: true, alreadyExisted, firstCheckedAt})
+        return res.json({valid: true, alreadyExisted, firstCheckedAt, checkCount})
     }catch(err){
         return res.status(500).json({error: 'A aparut o eroare interna!'});
     }

@@ -15,6 +15,7 @@ async function upsertValidateIban(iban, bankCode){
     return {
         alreadyExisted: row.check_count > 1,
         firstCheckedAt: row.first_checked_at,
+        checkCount: row.check_count,
     };
 }
 
