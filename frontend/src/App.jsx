@@ -43,7 +43,7 @@ function App() {
       {result && (
         <div>
           {result.valid ? (
-            <p>IBAN valid! {result.alreadyExisted ? `(era deja în baza de date|Verficat de ${result.checkCount})` : '(prima verificare)'}</p>
+            <p>IBAN valid! {result.alreadyExisted ? `(era deja în baza de date|Verficat de ${result.checkCount}|Prima oara la: ${result.firstCheckedAt})` : '(prima verificare)'}</p>
           ) : (
             <p>IBAN invalid: {result.reason ?? result.error}</p>
           )}
