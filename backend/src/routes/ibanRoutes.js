@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const {postIban} = require('../controllers/ibanController');
+const {postIban, postIbans} = require('../controllers/ibanController');
 
 router.post('/', postIban);
-//router.post('/batch', postIbans);
+router.post('/batch', postIbans);
 
 module.exports = router;
